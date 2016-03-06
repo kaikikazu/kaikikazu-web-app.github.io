@@ -1,3 +1,9 @@
+<% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+<% end %>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     メッセージ一覧
@@ -7,6 +13,7 @@
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
       <%= message.body %>
+      <%= link_to "削除" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
       <br>
     <% end %>
   </div>
